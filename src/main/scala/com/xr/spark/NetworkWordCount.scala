@@ -20,6 +20,8 @@ object NetworkWordCount {
     val result = lines.flatMap(_.split(" ")).map((_, 1)).reduceByKey(_ + _)
 
     result.print()
+    ssc.start()
+    ssc.awaitTermination()
 
   }
 
